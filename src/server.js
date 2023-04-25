@@ -9,5 +9,5 @@ server.use(cors());
 server.use(express.json());
 server.use(router);
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 server.listen(PORT, ()=>console.log(`Server connected on port ${PORT}`));
