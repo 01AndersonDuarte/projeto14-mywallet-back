@@ -37,7 +37,6 @@ export async function addTransaction(req, res) {
     const token = authorization?.replace('Bearer ', '');
 
     const { type } = req.query;
-    console.log(type);
     if (type !== 'outflow' && type !== 'inflow') return res.sendStatus(400);//Dá pra fazer com joi
 
     try {
