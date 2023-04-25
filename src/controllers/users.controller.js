@@ -13,15 +13,16 @@ export async function signup(req, res) {
         await db.collection("users").insertOne({ name, email, password: encryptedPassword });
 
         const newUser = await db.collection("users").findOne({ email });
+        console.log("teste");
         await db.collection("AllTransactions").insertOne(
             {
                 userId: newUser._id,
                 name: newUser.name,
-                transactions:
-                {
-                    outflow: [],
-                    inflow: []
-                }
+                transactions: []
+                // {
+                //     outflow: [],
+                //     inflow: []
+                // }
             });
         res.sendStatus(201);
     } catch (error) {
